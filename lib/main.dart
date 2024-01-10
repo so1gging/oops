@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oops_flutter/screens/word_list_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.primary,
         title: Text(widget.title),
       ),
-      body: GridView.count(crossAxisCount: 3, children: List.generate(3, (index) => Center(child: Text('test'),)),),
+      body: ElevatedButton(onPressed: () => {Navigator.push(context, MaterialPageRoute(builder: (_)=> WordListPage()))}, child: const Text("테스트"),),
     );
   }
 }
