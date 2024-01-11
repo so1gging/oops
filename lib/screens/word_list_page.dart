@@ -8,7 +8,7 @@ class WordListPage extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
-        title: const Text("data"),
+        title: const Text("word list"),
         leading: IconButton(
             onPressed: () => Navigator.pop(context),
             icon: const Icon(Icons.arrow_back_ios)),
