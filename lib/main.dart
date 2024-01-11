@@ -1,7 +1,11 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:oops_flutter/screens/word_list_page.dart';
 
-void main() {
+void main() async {
+  await dotenv.load(fileName: '.env');
   runApp(const MyApp());
 }
 
@@ -23,6 +27,7 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
+
   final String title;
 
   @override
@@ -30,7 +35,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +42,14 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.primary,
         title: Text(widget.title),
       ),
-      body: ElevatedButton(onPressed: () => {Navigator.push(context, MaterialPageRoute(builder: (_)=> WordListPage()))}, child: const Text("테스트"),),
+      body: ElevatedButton(
+        onPressed: () => {
+          debugPrint(dotenv.env['GOOGLE_SHEET_KEY'])
+          // Navigator.push(
+          //     context, MaterialPageRoute(builder: (_) => WordListPage()))
+        },
+        child: const Text("테스트"),
+      ),
     );
   }
 }
