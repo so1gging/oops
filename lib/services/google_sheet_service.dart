@@ -16,6 +16,10 @@ class GoogleSheetService {
     _spreadsheet = await _gsheets.spreadsheet(dotenv.env['SHEET_ID'] ?? '');
   }
 
+  getAllWorksheet() async {
+    return await _spreadsheet?.sheets;
+  }
+
   getWorksheetByIndex(int index) async {
     return await _spreadsheet?.worksheetByIndex(index);
   }
