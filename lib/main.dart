@@ -1,8 +1,6 @@
-import 'dart:math';
-
+import 'screens/word_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:oops_flutter/screens/word_list_page.dart';
 
 void main() async {
   await dotenv.load(fileName: '.env');
@@ -20,7 +18,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlue),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Ooops!'),
+      home: const MyHomePage(
+        title: 'Ooops!',
+      ),
     );
   }
 }
@@ -44,9 +44,8 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: ElevatedButton(
         onPressed: () => {
-          debugPrint(dotenv.env['GOOGLE_SHEET_KEY'])
-          // Navigator.push(
-          //     context, MaterialPageRoute(builder: (_) => WordListPage()))
+          Navigator.push(
+              context, MaterialPageRoute(builder: (_) => WordListPage()))
         },
         child: const Text("테스트"),
       ),
