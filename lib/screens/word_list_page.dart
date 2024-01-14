@@ -59,10 +59,12 @@ class _WordListPageState extends State<WordListPage> {
                   return Container(
                     color: Colors.blueAccent,
                     child: Center(
-                      child: Text(
-                        snapshot.data[index].title,
-                        style: TextStyle(color: Colors.white),
-                      ),
+                        child: TextButton(child: Text(
+                          snapshot.data[index].title,
+                          style: TextStyle(color: Colors.white),
+                        ), onPressed: () => {
+
+                        },)
                     ),
                   );
                 },
